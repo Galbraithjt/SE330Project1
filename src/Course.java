@@ -46,8 +46,6 @@ public class Course
         {
             theLink.display();
 
-            System.out.println("Next Link: " + theLink.next);
-
             theLink = theLink.next;
 
             System.out.println();

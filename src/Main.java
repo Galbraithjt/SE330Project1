@@ -23,17 +23,13 @@ public class Main
 
     public void display()
     {
-        System.out.println(className + " Total Students Enrolled: " + enrolledStudents);
+        System.out.println(className + "\n Total Students Enrolled: " + enrolledStudents);
     }
 
-    public String toString()
-    {
-        return className;
-    }
-
-    public static void main(String[] args) { //Start Main
+    public static void main(String[] args)
+    { //Start Main
         Scanner ui = new Scanner(System.in);
-        int classChoice =0;
+        int classChoice;
         String classNameChoice;
 
         Course offeredCourse = new Course();
@@ -65,6 +61,7 @@ public class Main
         for (int flc =0; classChoice > flc; flc++)
         {
             System.out.println("Enter the course name you would like to register for:");
+            ui.nextLine();
             classNameChoice = ui.nextLine();
 
             offeredCourse.set(classNameChoice);
