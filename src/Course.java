@@ -1,3 +1,5 @@
+import sun.org.mozilla.javascript.ast.WhileLoop;
+
 /*
  * Created by Joshua on 2/23/16.
  */
@@ -85,7 +87,27 @@ public class Course
         return theLink;
     }
 
-    public Main removeLink(String nodeNumber)
+    public int set(String className)
+    {
+        Main currentLink = firstLink;
+
+        while (currentLink.className == className)
+        {
+            if (currentLink.enrolledStudents < 30)
+            {
+                currentLink.enrolledStudents = currentLink.enrolledStudents + 1;
+            }
+
+            if (currentLink.enrolledStudents > 30)
+            {
+                currentLink.enrolledStudents = 30;
+            }
+        }
+        return currentLink.enrolledStudents;
+    }
+
+
+    public Main removeLink(String className)
     {
 
         Main currentLink = firstLink;
@@ -93,7 +115,7 @@ public class Course
 
         // Keep searching as long as a match isn't made
 
-        while (currentLink.className != nodeNumber)
+        while (currentLink.className != className)
         {
             // Check if at the last Link in the LinkList
 
