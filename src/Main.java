@@ -1,10 +1,13 @@
 /*
  * Created by Joshua on 2/23/16.
  */
+import java.util.Scanner;
+
 public class Main
 { //start Main Class
     // Set to public so getters & setters aren't needed
-    public String nodeNumber;
+    public String className;
+    public int enrolledStudents;
 
     // Reference to next link made in the SLList
     // Holds the reference to the Link that was created before it
@@ -12,42 +15,42 @@ public class Main
 
     public Main next;
 
-    public Main (String nodeNumber)
+    public Main (String className, int enrolledStudents)
     {
-        this.nodeNumber = nodeNumber;
+        this.className = className;
+        this.enrolledStudents = enrolledStudents;
     }
 
     public void display()
     {
-        System.out.println(nodeNumber);
+        System.out.println(className);
     }
 
     public String toString()
     {
-        return nodeNumber;
+        return className;
     }
+
     public static void main(String[] args)
     { //Start Main
-        Course theLinkedList = new Course();
+        Scanner ui = new Scanner(System.in);
+
+        Course offeredCourse = new Course();
 
         // Insert Link and add a reference to the node Link added just prior
         // to the field next
 
-        theLinkedList.insertFirstLink("1");
-        theLinkedList.insertFirstLink("2");
-        theLinkedList.insertFirstLink("3");
-        theLinkedList.insertFirstLink("4");
+        offeredCourse.insertFirstLink("SE 330", 0);
+        offeredCourse.insertFirstLink("SE 240", 0);
+        offeredCourse.insertFirstLink("SE 250", 0);
+        offeredCourse.insertFirstLink("HUM 401", 0);
+        offeredCourse.insertFirstLink("ENG 101", 0);
+        offeredCourse.insertFirstLink("ENG 102", 0);
+        offeredCourse.insertFirstLink("COMM 101", 0);
+        offeredCourse.insertFirstLink("HUM 101", 0);
+        offeredCourse.insertFirstLink("SCI 201", 0);
+        offeredCourse.insertFirstLink("SOC 201", 0);
 
-        theLinkedList.display();
-
-        System.out.println("Value of first node in Link List " + theLinkedList.firstLink + "\n");
-
-        System.out.println(theLinkedList.find("3").nodeNumber + " Was Found");//finds node 3
-
-        theLinkedList.removeLink("2");//removes node 2
-
-        System.out.println("\n2\n");
-
-        theLinkedList.display();
+        offeredCourse.display();
     }//end Main
 }//End Class

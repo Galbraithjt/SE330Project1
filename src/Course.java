@@ -8,7 +8,8 @@ public class Course
 
     public Main firstLink;
 
-    Course() {
+    Course()
+    {
         // Here to show the first Link always starts as null
 
         firstLink = null;
@@ -16,12 +17,14 @@ public class Course
 
     // Returns true if LinkList is empty
 
-    public boolean isEmpty() {
+    public boolean isEmpty()
+    {
         return (firstLink == null);
     }
 
-    public void insertFirstLink(String nodeNumber) {
-        Main newLink = new Main(nodeNumber);
+    public void insertFirstLink(String className, int enrolledStudents)
+    {
+        Main newLink = new Main(className, enrolledStudents);
         // Connects the firstLink field to the new Link
 
         newLink.next = firstLink;
@@ -29,14 +32,16 @@ public class Course
         firstLink = newLink;
     }
 
-    public void display() {
+    public void display()
+    {
         Main theLink = firstLink;
 
         // Start at the reference stored in firstLink and
         // keep getting the references stored in next for
         // every Link until next returns null
 
-        while (theLink != null) {
+        while (theLink != null)
+        {
             theLink.display();
 
             System.out.println("Next Link: " + theLink.next);
@@ -47,46 +52,60 @@ public class Course
         }
     }
 
-    public Main find(String nodeNumber) {
+    public Main find(String className)
+    {
         Main theLink = firstLink;
 
-        if (!isEmpty()) {
-            while (theLink.nodeNumber != nodeNumber) {
+        if (!isEmpty())
+        {
+            while (theLink.className != className)
+            {
                 // Checks if at the end of the LinkList
 
-                if (theLink.next == null) {
+                if (theLink.next == null)
+                {
                     // Got to the end of the Links in LinkList
                     // without finding a match
 
                     return null;
-                } else {
+                }
+                else
+                {
                     // Found a matching Link in the LinkList
 
                     theLink = theLink.next;
                 }
             }
-        } else {
+        }
+        else
+        {
             System.out.println("Empty LinkList");
         }
 
         return theLink;
     }
 
-    public Main removeLink(String nodeNumber) {
+    public Main removeLink(String nodeNumber)
+    {
 
         Main currentLink = firstLink;
         Main previousLink = firstLink;
 
         // Keep searching as long as a match isn't made
 
-        while (currentLink.nodeNumber != nodeNumber) {
+        while (currentLink.className != nodeNumber)
+        {
             // Check if at the last Link in the LinkList
 
-            if (currentLink.next == null) {
+            if (currentLink.next == null)
+            {
                 // nodeNumber not found so leave the method
 
                 return null;
-            } else {
+            }
+
+            else
+            {
                 // We checked here so let's look in the
                 // next Link on the list
 
@@ -96,13 +115,17 @@ public class Course
             }
         }
 
-        if (currentLink == firstLink) {
+        if (currentLink == firstLink)
+        {
             // If you are here that means there was a match
             // in the reference stored in firstLink in the
             // LinkList so just assign next to firstLink
 
             firstLink = firstLink.next;
-        } else {
+        }
+
+        else
+        {
             // If you are here there was a match in a Link other
             // than the firstLink. Assign the value of next for
             // the Link you want to delete to the Link that's
