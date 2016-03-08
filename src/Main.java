@@ -31,22 +31,23 @@ public class Main
         Scanner ui = new Scanner(System.in);
         int classChoice;
         String classNameChoice;
+        int enrolledStudents = 0;
 
         Course offeredCourse = new Course();
 
         // Insert Link and add a reference to the node Link added just prior
         // to the field next
 
-        offeredCourse.insertFirstLink("SE330", 0);
-        offeredCourse.insertFirstLink("SE240", 0);
-        offeredCourse.insertFirstLink("SE250", 0);
-        offeredCourse.insertFirstLink("HUM401", 0);
-        offeredCourse.insertFirstLink("ENG101", 0);
-        offeredCourse.insertFirstLink("ENG102", 0);
-        offeredCourse.insertFirstLink("COMM101", 0);
-        offeredCourse.insertFirstLink("HUM101", 0);
-        offeredCourse.insertFirstLink("SCI201", 0);
-        offeredCourse.insertFirstLink("SOC201", 0);
+        offeredCourse.insertFirstLink("ENG101", enrolledStudents);
+        offeredCourse.insertFirstLink("ENG102", enrolledStudents);
+        offeredCourse.insertFirstLink("SOC201", enrolledStudents);
+        offeredCourse.insertFirstLink("SCE101", enrolledStudents);
+        offeredCourse.insertFirstLink("PHY201", enrolledStudents);
+        offeredCourse.insertFirstLink("SE330", enrolledStudents);
+        offeredCourse.insertFirstLink("SE240", enrolledStudents);
+        offeredCourse.insertFirstLink("SE410", enrolledStudents);
+        offeredCourse.insertFirstLink("SE250", enrolledStudents);
+        offeredCourse.insertFirstLink("HUM401", enrolledStudents);
 
         offeredCourse.display();
         System.out.println("Enter the number of classes you would like to register for'Must be less than 4 if" +
@@ -58,13 +59,13 @@ public class Main
             classChoice = 4;
         }
 
+        ui.nextLine();
+
         for (int flc =0; classChoice > flc; flc++)
         {
             System.out.println("Enter the course name you would like to register for:");
-            ui.nextLine();
             classNameChoice = ui.nextLine();
-
-            offeredCourse.set(classNameChoice);
+            offeredCourse.find(classNameChoice);
         }
 
         offeredCourse.display();

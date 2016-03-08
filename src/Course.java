@@ -1,5 +1,3 @@
-import sun.org.mozilla.javascript.ast.WhileLoop;
-
 /*
  * Created by Joshua on 2/23/16.
  */
@@ -52,13 +50,13 @@ public class Course
         }
     }
 
-    public Main find(String className)
+    public Main find (String className)
     {
         Main theLink = firstLink;
 
         if (!isEmpty())
         {
-            while (theLink.className != className)
+            while (!theLink.className.equals(className))
             {
                 // Checks if at the end of the LinkList
 
@@ -72,7 +70,6 @@ public class Course
                 else
                 {
                     // Found a matching Link in the LinkList
-
                     theLink = theLink.next;
                 }
             }
@@ -82,18 +79,33 @@ public class Course
             System.out.println("Empty LinkList");
         }
 
+        if (theLink.enrolledStudents < 30)
+        {
+            theLink.enrolledStudents++;
+        }
+
+        if (theLink.enrolledStudents > 30)
+        {
+            theLink.enrolledStudents = 30;
+        }
+
         return theLink;
     }
 
-    public int set(String className)
+    /*public int set (String className)
     {
-        Main currentLink = firstLink;
+        Link currentLink = firstLink;
+
+        while (currentLink.className != className)
+        {
+            currentLink = currentLink.next;
+        }
 
         while (currentLink.className == className)
         {
             if (currentLink.enrolledStudents < 30)
             {
-                currentLink.enrolledStudents = currentLink.enrolledStudents + 1;
+                currentLink.enrolledStudents++;
             }
 
             if (currentLink.enrolledStudents > 30)
@@ -102,7 +114,7 @@ public class Course
             }
         }
         return currentLink.enrolledStudents;
-    }
+    }*/
 
 
     public Main removeLink(String className)
